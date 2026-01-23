@@ -72,3 +72,10 @@ markers = [
 testpaths = ["tests"]
 pythonpath = ["."]
 DJANGO_SETTINGS_MODULE = "tests.settings"
+
+
+[tool.coverage.run]
+source = ["django_fsm_log"]
+
+[tool.coverage.report]
+show_missing = true
