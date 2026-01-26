@@ -31,7 +31,7 @@ jobs:
           - django-version: 5.1
             python-version: 3.9
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Python ${{ matrix.python-version }}
         uses: astral-sh/setup-uv@v5
         with:
@@ -58,7 +58,7 @@ jobs:
     needs: pytest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: astral-sh/setup-uv@v5
       - run: uv python install 3.13
       - uses: actions/download-artifact@v4
@@ -76,7 +76,7 @@ jobs:
   lint: # redundant with pre-commit-ci, but we want to make the linters a part of strict status checks.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: astral-sh/setup-uv@v5
       - run: uv python install 3.13
       - run: uv sync --group dev
