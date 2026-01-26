@@ -4,6 +4,7 @@
 local_settings.py
 .tox/
 .coverage
+coverage.xml
 
 build/
 dist/

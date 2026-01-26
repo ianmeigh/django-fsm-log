@@ -7,6 +7,8 @@ on:
 jobs:
   pytest:
     runs-on: ubuntu-latest
+    env:
+      COVERAGE_FILE: coverage-py${{ matrix.python-version }}-dj${{ matrix.django-version }}.coverage
     strategy:
       matrix:
         python-version:
@@ -41,17 +43,15 @@ jobs:
         env:
           UV_PYTHON_PREFERENCE: only-managed
       - run: uv sync --all-groups
-      - run: uv run --with 'django~=${{ matrix.django-version }}.0' pytest --cov --cov-report=
+      - run: uv run --with 'django~=${{ matrix.django-version }}.0' pytest --cov
         env:
           DJANGO_SETTINGS_MODULE: tests.settings
           PYTHONPATH: "."
-      - name: Rename coverage file
-        run: mv .coverage .coverage.py${{ matrix.python-version }}.dj${{ matrix.django-version }}
       - name: Save coverage file
         uses: actions/upload-artifact@v4
         with:
-          name: .coverage.py${{ matrix.python-version }}.dj${{ matrix.django-version }}
-          path: .coverage.py${{ matrix.python-version }}.dj${{ matrix.django-version }}
+          name: ${{ env.COVERAGE_FILE }}
+          path: ${{ env.COVERAGE_FILE }}
           include-hidden-files: true
 
   codecov:
@@ -63,11 +63,12 @@ jobs:
       - run: uv python install 3.13
       - uses: actions/download-artifact@v4
         with:
-          pattern: .coverage.*
+          pattern: "*.coverage"
           merge-multiple: true
       - name: Combine coverage
         run: |
-          uv run coverage combine
+          uv run coverage combine --keep ./*.coverage
+          uv run coverage report
           uv run coverage xml
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
