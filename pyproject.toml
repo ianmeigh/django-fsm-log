@@ -1,5 +1,10 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
 [project]
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 description = "Transition's persistence for django-fsm"
 name = "django-fsm-log"
 dynamic = ["version"]
@@ -49,14 +54,14 @@ docs = ["sphinx", "sphinx_rtd_theme", "myst-parser"]
 Documentation = "https://django-fsm-log.readthedocs.io/en/latest/"
 Homepage = "https://github.com/jazzband/django-fsm-log"
 
-[build-system]
-requires = ["setuptools>=64", "setuptools_scm>=8"]
-build-backend = "setuptools.build_meta"
+[tool.hatch.version]
+source = "vcs"
 
-[tool.setuptools]
-include-package-data = true
+[tool.hatch.build.targets.sdist]
+include = ["django_fsm_log"]
 
-[tool.setuptools_scm]
+[tool.hatch.build.targets.wheel]
+packages = ["django_fsm_log"]
 
 [tool.ruff]
 line-length = 119

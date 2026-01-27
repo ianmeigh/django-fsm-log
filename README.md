@@ -14,7 +14,21 @@ by enabling a cached backend. See [Advanced Usage](#advanced-usage)
 
 ## Changelog
 
-## 4.0.5 (2025-06-11)
+## 5.0.2 ( 2026-01-27 )
+
+- Try to publish straight to pypi thanks to oicd trusted publishing process
+
+## 5.0.1 ( :x: )
+
+- switch from setuptools to hatchling
+
+## 5.0.0 ( :x: )
+
+- ⚠️ Drop python3.9 support
+- Add python3.14 support
+- Add django 5.2, 6.0 support
+
+## 4.0.5 ( :x: )
 
 - Switch to uv
 
