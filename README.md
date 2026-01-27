@@ -14,7 +14,11 @@ by enabling a cached backend. See [Advanced Usage](#advanced-usage)
 
 ## Changelog
 
-## 5.0.1 ( 2026-01-27 )
+## 5.0.2 ( 2026-01-27 )
+
+- Try to publish straight to pypi thanks to oicd trusted publishing process
+
+## 5.0.1 ( :x: )
 
 - switch from setuptools to hatchling
 
