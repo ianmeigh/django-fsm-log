@@ -14,7 +14,11 @@ by enabling a cached backend. See [Advanced Usage](#advanced-usage)
 
 ## Changelog
 
-## 5.0.0 (2026-01-26)
+## 5.0.1 ( 2026-01-27 )
+
+- switch from setuptools to hatchling
+
+## 5.0.0 ( :x: )
 
 - ⚠️ Drop python3.9 support
 - Add python3.14 support
