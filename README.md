@@ -14,7 +14,13 @@ by enabling a cached backend. See [Advanced Usage](#advanced-usage)
 
 ## Changelog
 
-## 4.0.5 (2025-06-11)
+## 5.0.0 (2026-01-26)
+
+- ⚠️ Drop python3.9 support
+- Add python3.14 support
+- Add django 5.2, 6.0 support
+
+## 4.0.5 ( :x: )
 
 - Switch to uv
 
